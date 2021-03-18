@@ -22,4 +22,4 @@ function booleanToString(b){
  return "false";
 }
 
-console.log(booleanToString(false))
+
