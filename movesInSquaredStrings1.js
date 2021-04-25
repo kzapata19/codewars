@@ -1,7 +1,9 @@
 /*
 This kata is the first of a sequence of four about "Squared Strings".
 
-You are given a string of n lines, each substring being n characters long: For example:
+You are given a string of n lines, each substring being n characters long: 
+
+For example:
 
 s = "abcd\nefgh\nijkl\nmnop"
 
@@ -40,8 +42,38 @@ The input strings are separated by , instead of \n.
 The output strings should be separated by \r instead of \n. See "Sample Tests".
 */
 
+/*
+********* Vert-mirror fx *********
+Parameters: one string
+- One string, with N number of substrings (size not predetermined, may or may not be identical for all substrings <- not relevant I don't think)
+- Each substring is separated by a "\n"
+
+Returns: one string
+- The string is a collection of the original string's substrings, each reversed. The original order of the substrings remains, 
+  substrings reversed in place
+
+Examples/Edge Cases:
+string: "abc\ndefg\nhij\nk"
+expected output: "cba\ngfed\njih\nk (notice that the last character 'k' remains the same since no other character available to reverse in that substring"
+
+Pseudocode:
+Using native array and string methods: split, reverse, join 
+- separate the substrings 
+- separate each substring's characters
+- reverse each substring's characters
+- join each substring's characters
+- while keeping the original sequence of the substrings, rejoin the reversed substrings 
+- return the vertical mirror of the original string
+*/
+
 function vertMirror(strng) {
-  // Your code
+  let subStrs = strng.split("\n")
+  let verticalMirror = ""
+  
+  subStrs.forEach(subStr => {
+    verticalMirror += subStr.split("").reverse().join("")+"\n"; // shouldn't have a \n char after last substring
+  })
+  return verticalMirror;
 }
 function horMirror(strng) {
   // Your code
@@ -49,3 +81,6 @@ function horMirror(strng) {
 function oper(fct, s) {
   // Your code
 }
+
+let myStr = "abcd\nefgh\nijkl\nmnop"
+console.log(vertMirror(myStr)) //expected output: "dcba\nhgfe\nlkji\nponm"
