@@ -67,12 +67,18 @@ Using native array and string methods: split, reverse, join
 */
 
 function vertMirror(strng) {
-  let subStrs = strng.split("\n")
+  let subStrsArr = strng.split("\n")
+  let subStrArrLength = subStrsArr.length
+  let lastSubStr = subStrsArr.length - 1;
+  let currentSubStr = 0;
   let verticalMirror = ""
   
-  subStrs.forEach(subStr => {
-    verticalMirror += subStr.split("").reverse().join("")+"\n"; // shouldn't have a \n char after last substring
-  })
+  while(currentSubStr < subStrArrLength) {
+    if(currentSubStr === lastSubStr) verticalMirror += subStrsArr[currentSubStr].split("").reverse().join("")
+    else verticalMirror += subStrsArr[currentSubStr].split("").reverse().join("")+"\n"
+    currentSubStr++;
+  }
+  
   return verticalMirror;
 }
 function horMirror(strng) {
