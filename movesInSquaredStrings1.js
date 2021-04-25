@@ -49,8 +49,8 @@ Parameters: one string
 - Each substring is separated by a "\n"
 
 Returns: one string
-- The string is a collection of the original string's substrings, each reversed. The original order of the substrings remains, 
-  substrings reversed in place
+- The string is a concatenation of the original string's substrings, each reversed. The original order of the substrings remains
+  (substrings reversed in place)
 
 Examples/Edge Cases:
 string: "abc\ndefg\nhij\nk"
@@ -64,29 +64,61 @@ Using native array and string methods: split, reverse, join
 - join each substring's characters
 - while keeping the original sequence of the substrings, rejoin the reversed substrings 
 - return the vertical mirror of the original string
+
+********* Horizontal-mirror fx *********
+Parameters: same as vertical
+
+Returns: one string
+- The string is a concatenation of the original string's substrings, where the sequence of the substrings is reversed
+  (each substring remains the same, not reversed in place like it was in vertical-mirror fx)
+
+Examples/Edge Cases:
+string: "abc\ndefg\nhij\nk"
+expected output: "k\nhij\ndefg\nabc 
+(notice the "\n" character placement does not change, it follows each substring starting with the first one in the output) 
+
+Pseudocode:
+Using native array and string methods: split, reverse, join
+- separate the substrings
+- reverse the sequence of the substrings (the substring characters remain the same!)
+- join the newly sequenced substrings into one string
+- return the horizontal mirror of the original string
+
 */
 
 function vertMirror(strng) {
-  let subStrsArr = strng.split("\n")
-  let subStrArrLength = subStrsArr.length
+  let subStrsArr = strng.split("\n");
+  let subStrArrLength = subStrsArr.length;
   let lastSubStr = subStrsArr.length - 1;
   let currentSubStr = 0;
-  let verticalMirror = ""
+  let verticalMirror = "";
   
   while(currentSubStr < subStrArrLength) {
     if(currentSubStr === lastSubStr) verticalMirror += subStrsArr[currentSubStr].split("").reverse().join("")
     else verticalMirror += subStrsArr[currentSubStr].split("").reverse().join("")+"\n"
     currentSubStr++;
   }
-  
   return verticalMirror;
 }
 function horMirror(strng) {
-  // Your code
+  let subStrsArr = strng.split("\n");
+  let reversed = subStrsArr.reverse();
+  let reversedLength = reversed.length;
+  let lastSubStr = reversedLength - 1;
+  let currentSubStr = 0;
+  let horizontalMirror = "";
+
+  while(currentSubStr < reversedLength) {
+    if(currentSubStr === lastSubStr) horizontalMirror += reversed[lastSubStr];
+    else horizontalMirror += reversed[currentSubStr]+"\n";
+    currentSubStr++;
+  }
+  return horizontalMirror;
 }
 function oper(fct, s) {
   // Your code
 }
 
-let myStr = "abcd\nefgh\nijkl\nmnop"
-console.log(vertMirror(myStr)) //expected output: "dcba\nhgfe\nlkji\nponm"
+let myStr = "abcd\nefgh\nijkl\nmnop";
+// console.log(vertMirror(myStr)) //expected output: "dcba\nhgfe\nlkji\nponm"
+console.log(horMirror(myStr)) //expected output: "mnop\nijkl\nefgh\nabcd"
