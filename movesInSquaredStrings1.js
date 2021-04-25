@@ -122,5 +122,7 @@ function oper(fct, s) {
 let myStr = "abcd\nefgh\nijkl\nmnop";
 // console.log(vertMirror(myStr)) //expected output: "dcba\nhgfe\nlkji\nponm"
 // console.log(horMirror(myStr)) //expected output: "mnop\nijkl\nefgh\nabcd"
-console.log(oper(vertMirror, myStr)) //expected output: "dcba\nhgfe\nlkji\nponm"
-console.log(oper(horMirror, myStr)) //expected output: "mnop\nijkl\nefgh\nabcd"
+// console.log(oper(vertMirror, myStr)) //expected output: "dcba\nhgfe\nlkji\nponm"
+// console.log(oper(horMirror, myStr)) //expected output: "mnop\nijkl\nefgh\nabcd"
+
+// Tests passed, refactor later!
