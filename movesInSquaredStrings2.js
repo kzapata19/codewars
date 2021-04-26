@@ -102,12 +102,25 @@ function rot(strng) {
   return rotated;
 }
 function selfieAndRot(strng) {
-  
+  let regex = /\n/g
+  let subStringLength = strng.split("\n")[0].length; 
+  let dots = "";
+  for(let i = 0; i < subStringLength; i++) {
+    dots += "."
+  }
+
+  let dotsNewLine = dots + "\n";
+  let newLineDots = "\n" + dots;
+  let firstHalf = strng.replace(regex, dotsNewLine)
+  let secondHalf = rot(strng).replace(regex, newLineDots)
+  let output = firstHalf + dotsNewLine + dots + secondHalf;
+  return output;
 }
+
 function oper(fct, s) {
-  // your code
+
 }
 
 let str = "abcd\nefgh\nijkl\nmnop";
 console.log(rot(str))// expected output: "ponm\nlkji\nhgfe\ndcba"
-console.log(typeof rot(str))
+console.log(selfieAndRot(str)) // expected output: "abcd....\nefgh....\nijkl....\nmnop....\n....ponm\n....lkji\n....hgfe\n....dcba"
