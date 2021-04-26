@@ -7,6 +7,7 @@ We will study some transformations of this square of strings.
 
 Clock rotation 180 degrees: rot
 rot(s) => "ponm\nlkji\nhgfe\ndcba"
+
 selfie_and_rot(s) (or selfieAndRot or selfie-and-rot) 
 It is initial string + string obtained by clock rotation 180 degrees with dots interspersed 
 in order (hopefully) to better show the rotation when printed.
@@ -47,7 +48,45 @@ Forthcoming katas will study other tranformations.
 Bash Note:
 The input strings are separated by , instead of \n. The ouput strings should be separated by \r instead of \n. 
 See "Sample Tests".
-
-
-
 */
+
+/*
+********* rot(s) fx *********
+Parameters: one string
+- String of substrings separated by a "\n" character. No trailing "\n" character after last substring
+- Assume all substrings are identical in length. No mention of their length in prompt
+
+Returns: one string
+- The string is a concatenation of each substring, reversed in place, and the sequence of the substrings is also reversed
+
+Examples/Edge Cases:
+s = "abcd\nefgh\nijkl\nmnop"
+rot(s) -> "ponm\nlkji\nhgfe\ndcba"
+
+Pseudocode:
+- Separate the input string into substrings using the "\n" as a delimeter and store results in an array
+- Separate each substrings' characters to then reverse
+- Reverse the sequence of the substrings
+- Join the newly reversed substrings and add a "\n" character between them (no trailing character at the end)
+- Return the output string
+
+********* selfieAndRot(s) fx *********
+Parameters:
+
+Returns:
+- Length of substrings determines the number of trailing dots between each substring in rotated output string
+
+Examples/Edge Cases:
+
+Pseudocode:
+*/
+
+function rot(strng) {
+  // your code
+}
+function selfieAndRot(strng) {
+  // your code
+}
+function oper(fct, s) {
+  // your code
+}
