@@ -71,7 +71,9 @@ Pseudocode:
 - Return the output string
 
 ********* selfieAndRot(s) fx *********
-Parameters:
+Parameters: one string
+- String of substrings separated by a "\n" character. No trailing "\n" character after last substring
+- Assume all substrings are identical in length. No mention of their length in prompt
 
 Returns:
 - Length of substrings determines the number of trailing dots between each substring in rotated output string
@@ -82,7 +84,8 @@ Pseudocode:
 */
 
 function rot(strng) {
-  // your code
+  let rotated = strng.split("").reverse().join("")
+  return rotated;
 }
 function selfieAndRot(strng) {
   // your code
@@ -90,3 +93,7 @@ function selfieAndRot(strng) {
 function oper(fct, s) {
   // your code
 }
+
+let str = "abcd\nefgh\nijkl\nmnop";
+console.log(rot(str))// expected output: "ponm\nlkji\nhgfe\ndcba"
+console.log(typeof rot(str))
