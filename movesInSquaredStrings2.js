@@ -64,7 +64,7 @@ s = "abcd\nefgh\nijkl\nmnop"
 rot(s) -> "ponm\nlkji\nhgfe\ndcba"
 
 Pseudocode:
-- Separate the input string into substrings using the "\n" as a delimeter and store results in an array
+- Separate the input string into substrings using the "\n" as a delimiter and store results in an array
 - Separate each substrings' characters to then reverse
 - Reverse the sequence of the substrings
 - Join the newly reversed substrings and add a "\n" character between them (no trailing character at the end)
@@ -76,11 +76,25 @@ Parameters: one string
 - Assume all substrings are identical in length. No mention of their length in prompt
 
 Returns:
-- Length of substrings determines the number of trailing dots between each substring in rotated output string
+- Length of each substring determines the number of trailing dots between each substring (including the "\n" char) in rotated output string.
+  Assume substring lengths are identical.
+- Output string should be:
+  - first half is original substrings separated by dots (number determined by substring length) then "\n" char. No trailing "\n" at end
+  - add an extra "\n" char
+  - second half is original string with substrings in reverse sequence (including the "\n" chars). No trailing "\n" at the end
 
 Examples/Edge Cases:
+s = "abcd\nefgh\nijkl\nmnop" 
+selfieAndRot(s) -> "abcd....\nefgh....\nijkl....\nmnop....\n....ponm\n....lkji\n....hgfe\n....dcba"
 
 Pseudocode:
+- 1. Separate the string into substrings using the "\n" delimiter
+- 2. Make a copy of the separated string to later reverse and add to the output string
+- 3. Calculate the length of the substrings to determine the number of dots used to separate the substrings
+- 4. Separate the substrings with number of dots and add a "\n" char
+- 5. Take the copy of the separate string, reverse it and perform steps 3 and 4
+- 6. Join both strings and insert a "\n" character between them
+- 7. Return the output string
 */
 
 function rot(strng) {
@@ -88,7 +102,7 @@ function rot(strng) {
   return rotated;
 }
 function selfieAndRot(strng) {
-  // your code
+  
 }
 function oper(fct, s) {
   // your code
