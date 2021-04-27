@@ -63,3 +63,26 @@ Pseudocode:
 - Join all substrings into one string
 - Return output string
 */
+
+function rot90Clock(strng) {
+  // your code
+}
+function diag1Sym(strng) {
+  let strArr = strng.split("\n") 
+  let diagArr = "";
+  for(let i = 0; i < strArr.length; i++) {
+    for(let j = 0; j < strArr.length; j++) {
+      diagArr += strArr[j][i];
+    }
+    diagArr += "\n";
+  }
+  return diagArr.slice()
+}
+function selfieAndDiag1(strng) {
+  // your code
+}
+function oper(fct, s) {
+  // your code
+}
+let str ="abcd\nefgh\nijkl\nmnop";
+console.log(diag1Sym(str));
