@@ -39,3 +39,27 @@ You can see each form according to the language in "Your test cases".
 It could be easier to take these katas from number (I) to number (IV)
 Bash Note: The output strings should be separated by \r instead of \n. See "Sample Tests".
 */
+
+/*
+********* diag1Sym(strng) fx *********
+Parameters: one string
+- A string of substrings with a "\n" character between each substring
+- All substrings have an identical length
+
+Return: one string
+- The string is made of substrings of identical lengths
+- Each substring is separated by a "\n" character
+- Each substring is a collection of the nth index of each substring belonging to the original string
+
+Examples/Edge Cases:
+s = "abcd\nefgh\nijkl\nmnop"
+diag_1_sym(s) -> "aeim\nbfjn\ncgko\ndhlp"
+
+Pseudocode:
+- Separate the input string into substrings, save in an array(?)
+- Iterate through the array of substrings to select the a character from each substring at the current n-th index
+- Collect each newly formed substring (in an array? object?)
+- Iterate through collection to add "\n" between each substring
+- Join all substrings into one string
+- Return output string
+*/
