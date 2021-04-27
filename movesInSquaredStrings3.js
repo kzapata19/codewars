@@ -64,9 +64,21 @@ Pseudocode:
 - Return output string
 */
 
-function rot90Clock(strng) {
-  // your code
+function vertMirror(strng) {
+  let subStrsArr = strng.split("\n");
+  let subStrArrLength = subStrsArr.length;
+  let lastSubStr = subStrsArr.length - 1;
+  let currentSubStr = 0;
+  let verticalMirror = "";
+  
+  while(currentSubStr < subStrArrLength) {
+    if(currentSubStr === lastSubStr) verticalMirror += subStrsArr[currentSubStr].split("").reverse().join("")
+    else verticalMirror += subStrsArr[currentSubStr].split("").reverse().join("")+"\n"
+    currentSubStr++;
+  }
+  return verticalMirror;
 }
+
 function diag1Sym(strng) {
   let strArr = strng.split("\n") 
   let diagArr = "";
@@ -78,6 +90,10 @@ function diag1Sym(strng) {
   }
   return diagArr.slice()
 }
+function rot90Clock(strng) {
+  let diag1SymResult = diag1Sym(strng);
+  return vertMirror(diag1SymResult);
+}
 function selfieAndDiag1(strng) {
   // your code
 }
@@ -85,4 +101,5 @@ function oper(fct, s) {
   // your code
 }
 let str ="abcd\nefgh\nijkl\nmnop";
-console.log(diag1Sym(str));
+// console.log(diag1Sym(str)); // expected output: "aeim\nbfjn\ncgko\ndhlp"
+console.log(rot90Clock(str)); // expected output: "miea\nnjfb\nokgc\nplhd"
