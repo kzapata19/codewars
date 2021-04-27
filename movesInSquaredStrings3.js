@@ -88,18 +88,27 @@ function diag1Sym(strng) {
     }
     diagArr += "\n";
   }
-  return diagArr.slice()
+  return diagArr.slice().slice(0, diagArr.length - 1) //removes the trailing "\n" char
 }
 function rot90Clock(strng) {
   let diag1SymResult = diag1Sym(strng);
   return vertMirror(diag1SymResult);
 }
 function selfieAndDiag1(strng) {
-  // your code
+  let initialStr = strng.split("\n")
+  let mainDiag = diag1Sym(strng); //this might be returning a trailing "\n"? Fixed it above in fx def
+  let result = ""
+  for(let i = 0; i < initialStr.length; i++) {
+    for(let j = 0; j < mainDiag.length; j++) {
+      result += initialStr[j][i] + "|" + mainDiag[j][i] + "\n";
+    }
+  }
+  return result;
 }
 function oper(fct, s) {
   // your code
 }
 let str ="abcd\nefgh\nijkl\nmnop";
 // console.log(diag1Sym(str)); // expected output: "aeim\nbfjn\ncgko\ndhlp"
-console.log(rot90Clock(str)); // expected output: "miea\nnjfb\nokgc\nplhd"
+// console.log(rot90Clock(str)); // expected output: "miea\nnjfb\nokgc\nplhd"
+console.log(selfieAndDiag1(str)); //expected output: "abcd|aeim\nefgh|bfjn\nijkl|cgko\nmnop|dhlp"
