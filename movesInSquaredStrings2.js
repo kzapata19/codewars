@@ -118,7 +118,7 @@ function selfieAndRot(strng) {
 }
 
 function oper(fct, s) {
-
+  return fct(s);
 }
 
 let str = "abcd\nefgh\nijkl\nmnop";
