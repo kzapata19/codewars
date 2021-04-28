@@ -64,6 +64,7 @@ Pseudocode:
 - Return output string
 */
 
+// From movesInSquaredStrings #1
 function vertMirror(strng) {
   let subStrsArr = strng.split("\n");
   let subStrArrLength = subStrsArr.length;
@@ -96,19 +97,17 @@ function rot90Clock(strng) {
 }
 function selfieAndDiag1(strng) {
   let initialStr = strng.split("\n")
-  let mainDiag = diag1Sym(strng); //this might be returning a trailing "\n"? Fixed it above in fx def
+  let mainDiag = diag1Sym(strng).split("\n");
   let result = ""
   for(let i = 0; i < initialStr.length; i++) {
-    for(let j = 0; j < mainDiag.length; j++) {
-      result += initialStr[j][i] + "|" + mainDiag[j][i] + "\n";
-    }
+    result += initialStr[i] + "|" + mainDiag[i] + "\n";
   }
-  return result;
+  return result.trim();
 }
 function oper(fct, s) {
-  // your code
+  return fct(s);
 }
 let str ="abcd\nefgh\nijkl\nmnop";
 // console.log(diag1Sym(str)); // expected output: "aeim\nbfjn\ncgko\ndhlp"
 // console.log(rot90Clock(str)); // expected output: "miea\nnjfb\nokgc\nplhd"
-console.log(selfieAndDiag1(str)); //expected output: "abcd|aeim\nefgh|bfjn\nijkl|cgko\nmnop|dhlp"
+// console.log(selfieAndDiag1(str)); //expected output: "abcd|aeim\nefgh|bfjn\nijkl|cgko\nmnop|dhlp"
