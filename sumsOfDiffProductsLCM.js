@@ -19,12 +19,14 @@ a really neat tool to have on your belt ;)
 */
 
 /*
-Parameters: one array (2D)
+Parameters: one array (2D) where each element is an array of a positive integer pair
 
-Return: number
+Return: positive whole number
 
 Examples/Edge Cases:
-
+1. Only one pair is provided: [[10, 3]] should return 0
+2. Empty array: [] should return 0
+3.  
 Pseudocode:
 
 */
