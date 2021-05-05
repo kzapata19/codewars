@@ -35,5 +35,14 @@ Pseudocode:
 */
 
 function evenLast(numbers) {
-
+  if(numbers.length === 0) return 0
+  let sum = numbers.reduce((sum, currentInt, index) => {
+    if(index % 2 === 0) sum += currentInt;
+    return sum;
+  }, 0)
+  return sum * (numbers[numbers.length - 1])
 }
+console.log(evenLast([2, 3, 4, 5]));
+console.log(evenLast([9, 12]));
+console.log(evenLast([-9, 3, 2, -98, 6]));
+console.log(evenLast([]));
