@@ -42,6 +42,12 @@ function evenLast(numbers) {
   }, 0)
   return sum * (numbers[numbers.length - 1])
 }
+
+// One-liner
+function evenLast(numbers) {
+  return numbers.filter((num, index) => index % 2 === 0).reduce((sum, num) => sum + num, 0) * numbers[numbers.length - 1] || 0;
+
+}
 console.log(evenLast([2, 3, 4, 5]));
 console.log(evenLast([9, 12]));
 console.log(evenLast([-9, 3, 2, -98, 6]));
