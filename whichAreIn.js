@@ -57,6 +57,10 @@ function inArray(array1, array2){
   return [...new Set(results)].sort(); //Set is a collection of unique values, it will remove duplicates from an array
 }
 
+function inArray(array1, array2) {
+  return array1.filter(string => array2.toString().includes(string)).sort();
+}
+
 console.log(inArray(["arp", "live", "strong"],["lively", "alive", "harp", "sharp", "armstrong"]))// --> ["arp", "live", "strong"]
 let a1 = ["tarp", "mice", "bull"]
 let a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
