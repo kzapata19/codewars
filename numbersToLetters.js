@@ -9,6 +9,7 @@ All inputs will be valid.
 /*
 Parameters: one array with a list of stringified numbers
 All inputs are valid
+
 Returns: one string 
 
 Examples/Edge Cases:
@@ -19,6 +20,8 @@ switcher(['4', '24']) -> 'wc'
 
 Pseudocode:
 - Create a dictionary with the numbers and their corresponding characters
+  - Hard code the three non-alpha characters
+  - Generate the lower case alphabet using String.fromCharCode() calculation
 - Iterate through the array of stringified numbers
   - Iterate through the dictionary to find the matching character
   - Save result string
@@ -26,5 +29,8 @@ Pseudocode:
 */
 
 function switcher(x){
-
+  const non-alphaChars = {
+    "27": "!",
+    "28": "?",
+    "29": " "
 }
