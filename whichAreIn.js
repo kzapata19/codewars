@@ -46,3 +46,18 @@ Pseudocode:
   - Sort results arrays alphabetically
   - Return results
   */
+
+function inArray(array1, array2){
+  let results =  array2.reduce((resultsArr, str) => {
+    array1.forEach(subStr => {
+      if(str.includes(subStr)) resultsArr.push(subStr)
+    })
+    return resultsArr;
+  }, [])
+  return [...new Set(results)].sort(); //Set is a collection of unique values, it will remove duplicates from an array
+}
+
+console.log(inArray(["arp", "live", "strong"],["lively", "alive", "harp", "sharp", "armstrong"]))// --> ["arp", "live", "strong"]
+let a1 = ["tarp", "mice", "bull"]
+let a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+console.log(inArray(a1, a2))// -->[]
