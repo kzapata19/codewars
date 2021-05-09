@@ -289,7 +289,7 @@ numbers = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 5 };
 ### push
 What it does: method adds one or more elements to the end of an array and returns the new length of the array
 
-How it works: call the method on the source array, no arguments are passed. 
+How it works: call the method on the source array, the argument(s) passed will be the element(s) added to the end of the array. 
 
 Time Complexity: constant, O(1). 
 The size of the source array is irrelevant because the element added is given an index one greater than the length of the array. 
@@ -332,7 +332,7 @@ popularDonuts = ["yeast donuts", "cake donuts", "cider donuts", "long johns", "o
 ```
 
 ### unshift
-What it does:
+What it does: 
 
 How it works:
 
