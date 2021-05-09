@@ -132,13 +132,46 @@ let petIntros = pets.forEach(petList);
 ```
 
 ### sort
-What it does:
+What it does: sorts the source array elements in place (using a compare callback) and returns the sorted array. If a compare callback is not provided, the default sort order is ascending, determined by converting all elements into strings and then comparing their sequences of UTF-16 code units.
 
-How it works:
+How it works: The compare callback takes in two arguments: the first element for comparison and the second element for comparison. 
+- If compareFunction(firstElem, secondElem) returns less than 0, leave both elements unchanged in the collection's sequence
+- If compareFunction(firstElem, secondElem) returns 0, leave both elements unchanged with respect to each other but sorted with respect to the rest of the collection
+- If compareFunction(firstElem, secondElem) returns greater than 0, sort secondElem before firstElem 
 
-Time Complexity:
+Time Complexity: Depends on the implementation of the callback
 
 Examples:
+```
+Alphabetical order with no compare callback defined:
+
+let names = ["Dora", "Swiper", "Bellini", "Tuna"]
+let alphabeticalOrder = names.sort() --> ["Bellini", "Dora", "Swiper", "Tuna"]
+
+Sort numerically:
+
+let integers = [-1, 0, 8,-19, 88, 193, -183, 9]
+let sortAscending = (num1, num2) => num1 - num2;
+let sorted = integers.sort(sortAscending) --> [-183, -19, -1, 0, 8, 9, 88, 193]
+
+Sort an array of objects:
+
+let cats = [
+  {name: "Bellini", weight: 12},
+  {name: "Tuna", weight: 5},
+  {name: "Dora", weight: 10},
+  {name: "Swiper", weight: 11}
+]
+let sortDescending = (cat1, cat2) => cat2.weight - cat1.weight
+let heaviestToSmallest = cats.sort(sortDescending) --> 
+[ 
+  {name: "Bellini", weight: 12},
+  {name: "Swiper", weight: 11},
+  {name: "Dora", weight: 10},
+  {name: "Tuna", weight: 5}
+]
+
+```
 
 ### slice
 What it does:
