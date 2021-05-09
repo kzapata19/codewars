@@ -270,7 +270,7 @@ What it does: method removes the first element of an array, modifying the array,
 How it works: method mutates the source array by removing the first element and shifting each remaining element one index down. No arguments are passed. If the collection is empty, method returns undefined. 
 
 Time Complexity: linear O(n)
-Like pop and push, shift (and unshift, below) is operating *on* the array instead of simply copying it (like slice). But unlike pop and push, shift (and unshift, below) must "shift" all the elements of the array.
+Like pop and push, shift (and unshift, below) is mutating the array instead of simply copying it (like slice). But unlike pop and push, shift (and unshift) must "shift" all the elements of the array.
 
 Examples:
 ##### Remove an element from an array 
@@ -332,11 +332,12 @@ popularDonuts = ["yeast donuts", "cake donuts", "cider donuts", "long johns", "o
 ```
 
 ### unshift
-What it does: 
+What it does: method adds one or more elements to the start of an array and returns the new length of the array
 
-How it works:
+How it works: call the method on the source array, the argument(s) passed will be the element(s) added to the start of the array. 
 
-Time Complexity:
+Time Complexity: linear, O(n)
+Like pop and push, unshift (and shift, above) is mutating the array instead of simply copying it (like slice). But unlike pop and push, unshift (and shift) must "shift" all the elements of the array.
 
 Examples:
 
