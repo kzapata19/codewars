@@ -192,6 +192,21 @@ Time Complexity: linear 0(n)
 
 Examples:
 ```
+Both start and end provided:
+
+let vegetables = ["kale", "onion", "spinach", "leek", "celery", "tomato"];
+let removeImposter = vegetables.slice(0, 5) // or vegetables.slice(0, vegetables.length -1)
+output: ["kale", "onion", "spinach", "leek", "celery"]
+
+Negative indeces for start and end:
+
+let vegetables = ["kale", "onion", "tomato", "spinach", "leek", "celery"];
+let selectImposter = vegetables.slice(-4, -3) --> ["tomato"]
+
+Negative index for end:
+
+let vegetables = ["kale", "onion", "spinach", "leek", "celery", "tomato"];
+let soupVeggies = vegetables.slice(1, -1) --> ["onion", "spinach", "leek", "celery"]
 
 ```
 
