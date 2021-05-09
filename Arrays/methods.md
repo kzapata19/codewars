@@ -287,13 +287,49 @@ let six = Array.prototype.pop.call(numbers); --> "zero"
 numbers = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 5 };
 ```
 ### push
-What it does:
+What it does: method adds one or more elements to the end of an array and returns the new length of the array
 
-How it works:
+How it works: call the method on the source array, no arguments are passed. 
 
-Time Complexity:
+Time Complexity: constant, O(1). 
+The size of the source array is irrelevant because the element added is given an index one greater than the length of the array. 
 
 Examples:
+
+##### Add donut to an array:
+let donutTypes = ["yeast donuts", "cake donuts", "potato donuts", "beignet", "churros", "cider donuts", "cruller", "long johns", "zeppole"]
+let myFaveDonut = donutTypes.push("old-fashioned donut"); --> 10 //the updated length of the source array (donutTypes)
+
+Source array after new element is pushed:
+donutTypes = ["yeast donuts", "cake donuts", "potato donuts", "beignet", "churros", "cider donuts", "cruller", "long johns", "zeppole", "old-fashioned donut"];
+
+##### Adding an element to an array using a for loop
+Implementing a simple map method using push:
+```
+function map (array, callback) {
+  let output = [];
+  for (let i = 0;  i < array.length; i++) {
+    output.push(callback(array[i]))
+  }
+  return output
+}
+let double = num => num * 2;
+let numbers = [1, 2, 3, 4];
+let doubled = map(numbers, double) --> [2, 4, 6, 8]
+```
+##### Merging two arrays
+Implementing a simple concat method using push:
+```
+function concat () {
+  return Array.prototype.push.apply(...arguments)
+}
+let popularDonuts = ["yeast donuts", "cake donuts", "cider donuts", "long johns"]
+let myFaveDonuts = ["old-fashioned donut", "beignet", "churros"]
+let allTheDonuts = concat(popularDonuts, myFaveDonuts); --> 7 //the updated length of the source array (popularDonuts)
+
+Source Array after second array was added with push:
+popularDonuts = ["yeast donuts", "cake donuts", "cider donuts", "long johns", "old-fashioned donut", "beignet", "churros"]
+```
 
 ### unshift
 What it does:
