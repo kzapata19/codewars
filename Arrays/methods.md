@@ -174,13 +174,26 @@ let heaviestToSmallest = cats.sort(sortDescending) -->
 ```
 
 ### slice
-What it does:
+What it does: method returns an array with a shallow copy of the portion of the source array.  
 
-How it works:
+How it works: The method takes two (optional) arguments (in order): start and end, where each represents the index of the array elements. The end element is not included. The source array remains unmodified. If no arguments are provided, the method will return a shallow copy of the entire source array. 
+  - Start index: 
+    - zero-based index
+    - a negative index, *n*, will extract n elements from the end of the array in reverse order
+    - if undefined, start index is 0
+    - if index is greater than the index range, method returns an empty array
+  - End index:
+    - zero-based index
+    - exclusive, meaning the element at the end index is not included in the copy
+    - a negative index, *n*, will extract n elements from the end of the array in reverse order
+    - if undefined or end is greater than the array length, the method will copy through the end of the array (inclusive)
 
-Time Complexity:
+Time Complexity: linear 0(n)
 
 Examples:
+```
+
+```
 
 ### pop
 What it does:
