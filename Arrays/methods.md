@@ -265,14 +265,27 @@ let six = Array.prototype.pop.call(numbers); --> "five"
 numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", length: 5 };
 ```
 ### shift
-What it does:
+What it does: method removes the first element of an array, modifying the array, and returns that element. When the element is removed, all remaining elements are shifted one index to the left.
 
-How it works:
+How it works: method mutates the source array by removing the first element and shifting each remaining element one index down. No arguments are passed. If the collection is empty, method returns undefined. 
 
-Time Complexity:
+Time Complexity: linear O(n)
+Like pop and push, shift (and unshift, below) is operating *on* the array instead of simply copying it (like slice). But unlike pop and push, shift (and unshift, below) must "shift" all the elements of the array.
 
 Examples:
-
+##### Remove an element from an array 
+```
+let snackySnacks = ["pie", "carrots", "hummus", "olives", "green apples", "frozen grapes"];
+let cheatdaySnack = snackySnacks.shift(); --> "pie"
+snackySnacks = ["carrots", "hummus", "olives", "green apples", "frozen grapes"]
+```
+##### Remove first key/value pair:
+An array-like object with enumerated key and a length property can use shift. The first element (with the lowest numbered key) is removed and the length property is updated.
+```
+let numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 6 };
+let six = Array.prototype.pop.call(numbers); --> "zero"
+numbers = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 5 };
+```
 ### push
 What it does:
 
