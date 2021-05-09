@@ -211,14 +211,59 @@ let soupVeggies = vegetables.slice(1, -1) --> ["onion", "spinach", "leek", "cele
 ```
 
 ### pop
-What it does:
+What it does: method removes the last element of an array, modifying the array, and returns that element.
 
-How it works:
+How it works: method mutates the source array, no arguments are passed. If the collection is empty, method returns undefined
 
-Time Complexity:
+Time Complexity: constant O(1), the run time is independent of the (input size) of the collection
 
 Examples:
+##### Removes the last element and mutates the source array:
+```
+let winterDrinks = ["hot chocolate",  "tea", "latte", "matcha", "ice coffee"];
+let summerDrink = drinks.pop(); --> "ice coffee"
+let winterDrinks = ["hot chocolate",  "tea", "latte", "matcha"];
 
+##### Empty source array, returns undefined:
+
+let badCoffeeDrinks = [];
+let drink = badCoffeeDrinks.pop() --> undefined
+```
+##### Collection of objects:
+```
+let winterMenu = [
+  {
+    caffeinatedDrinks: ["latte", "cappuccino"],
+    nonCaffeinatedDrinks: ["apple cider", "hot chocolate"]
+  },
+  {
+    soups: ["chicken noodle", "tortilla", "split pea", "peanut soup", "lima beans"],
+    hotPlates: ["ramen", "beef stroganoff", "veggie lasagna", "dumplings", "cajun jambalaya", "ravioli"]
+  }
+]
+let winterFoodOnly = winterMenu.pop() --> 
+[
+  {
+    soups: ["chicken noodle", "tortilla", "split pea", "peanut soup", "lima beans"],
+    hotPlates: ["ramen", "beef stroganoff", "veggie lasagna", "dumplings", "cajun jambalaya", "ravioli"]
+  }
+]
+
+WinterMenu is modified (only the drinks remain):
+winterMenu = [
+  {
+    caffeinatedDrinks: ["latte", "cappuccino"],
+    nonCaffeinatedDrinks: ["apple cider", "hot chocolate"]
+  }
+]
+```
+##### Remove last key/value pair:
+An array-like object with enumerated key and a length property can use pop. The last element (with the highest numbered key) is removed and the length property is updated.
+```
+let numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 6 };
+let six = Array.prototype.pop.call(numbers); --> "five"
+numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", length: 5 };
+```
 ### shift
 What it does:
 
