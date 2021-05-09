@@ -258,7 +258,7 @@ winterMenu = [
 ]
 ```
 ##### Remove last key/value pair:
-An array-like object with enumerated key and a length property can use pop. The last element (with the highest numbered key) is removed and the length property is updated.
+An array-like object with enumerated keys and a length property can use pop. The last element (with the highest numbered key) is removed and the length property is updated.
 ```
 let numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 6 };
 let six = Array.prototype.pop.call(numbers); --> "five"
@@ -280,7 +280,7 @@ let cheatdaySnack = snackySnacks.shift(); --> "pie"
 snackySnacks = ["carrots", "hummus", "olives", "green apples", "frozen grapes"]
 ```
 ##### Remove first key/value pair:
-An array-like object with enumerated key and a length property can use shift. The first element (with the lowest numbered key) is removed and the length property is updated.
+An array-like object with enumerated keys and a length property can use shift. The first element (with the lowest numbered key) is removed and the length property is updated.
 ```
 let numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 6 };
 let six = Array.prototype.pop.call(numbers); --> "zero"
