@@ -393,14 +393,41 @@ let gotKale = Array.prototype.includes.call(greens, "kale") --> true
 ```
 
 ### indexOf
-What it does:
+What it does: method returns the first index of the target element found in the source array
 
-How it works:
+How it works: call the method on the source array and pass the target element as an argument. The method will return the index of the first instance of the element if more than one instance exists. It will return -1 if the element is not found. Conducts a shallow search. For strings, the method is case-sensitive. Takes a second (optional) argument *fromIndex* which indicates the start index of the search.
 
-Time Complexity:
+Time Complexity: linear, O(n)
 
 Examples:
 
+##### Find a string in the array:
+```
+let collection = ["find", "ing", "Nemo", "is", "not", "hard"]
+let findingNemo = collection.indexOf("Nemo") --> 2  
+let findingNemo = collection.indexOf("nemo") --> -1 // the search is case-sensitive
+```
+##### Find the second needle in the haystack:
+```
+let haystack = ["hay", "hay", "needle", "hay", "needle", "hay", "needle"]
+let secondNeedle = haystack.indexOf("needle", 3); --> 4
+```
+
+##### Find all instances of a target element:
+```
+let keepIt100 = [1, 918, 99, 100, 100, 1830, 0, 381, 100, 474, 92, 100, 100]
+let all100 = function(array) {
+  let indeces = []
+  let oneHundred = 100
+  let index = array.indexOf(oneHundred)
+  while(index != -1) {
+    indeces.push(index);
+    index = array.indexOf(oneHundred, index + 1) // pass second optional argument to conduct search after last searched index
+  }
+  return indeces;
+}
+all100(keepIt100) --> [3, 4, 8, 11, 12]
+```
 ### every
 What it does:
 
