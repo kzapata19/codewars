@@ -16,9 +16,60 @@ Example:
 [ 1, 1, 11, 2, 3 ] => 6
 */
 
+/* One:
+Parameters: array with integers
+Return: Product of all integers
+Examples/Edge Cases:
+[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+Pseudocode: 
+- Iterate through the input array
+- Multiply each integer by the subsequent one
+- Continue until reaching the end of the array
+- Return the product
+*/
 function getProduct(arr) {
   return arr.reduce((product, int) =>{
     return product * int;
   }, 1)
 }
 // console.log(getProduct([1,2,3,4]))
+
+/* Two:
+Parameters: array with integers
+- Integers are family members' ages
+- Random order
+- Any age that is less than one year will be 0
+
+Return: array with three integers
+- First integer should be age of the youngest member
+- Second integer should be age of the oldest member
+- Third integer should be the difference between youngest and oldest member
+- Assuming all integers should be positive, specifically the third one
+
+Examples/Edge Cases:
+getAges([9, 35, 40, 0, 10]) --> [0, 40, 40]
+getAges([1, 30, 28, 5]) --> [1, 30, 29]
+getAges([9, 33, 1, 2]) --> [1, 33, 32] Note: don't use native sort method bc will place 9 as largest int
+
+Pseudocode:
+- Sort input array in ascending order, save sorted array in a new variable 
+- Select first item (smallest integer), last time (largest integer) and find the difference
+- Save all three integers in results array
+*/
+
+function getMin(arr) {
+  return arr.reduce((currentMin, int) => int < currentMin ? int : currentMin, Infinity);
+}
+
+function getMax(arr) {
+  return arr.reduce((currenMax, int) => int > currenMax ? int : currenMax, -Infinity);
+}
+
+function getAges(arr) {
+  let youngest = getMin(arr);
+  let oldest = getMax(arr);
+  let diff = oldest - youngest;
+  return [youngest, oldest, diff];
+}
+
+console.log(getAges([1, 30, 28, 5]))// --> [1, 30, 29]
