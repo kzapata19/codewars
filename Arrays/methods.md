@@ -74,12 +74,14 @@ Time Complexity: linear O(n)
 
 Examples:
 ```
-Search for one item in an array
+Search for one item in an array:
+
 let pastries = ["donuts", "croissants", "muffins", "cookies", "pies", "tarts", "quiches"]
 let findCookies = pastry => pastry === "cookies";
 let getCookies = pastries.filter(findCookies);
 
-Find the specific values in a collection
+Find the specific values in a collection:
+
 let friends = [
   {name: "Dan", age: 28}, 
   {name: "Janice", age: 30}, 
@@ -91,20 +93,43 @@ let friends = [
 let friendsOverThirty = friend => friend.age > 30;
 let getFriendsOverThirty = friends.filter(friendsOverThirty)
 
-Filter for all even numbers
+Filter for all even numbers:
+
 let integers = [1, -3, 29, 100, -2910, 384, 38, 99]
 let findEvenInt = int => int % 2 === 0;
 let getEvenInt = integers.filter(findEvenInt);
 ```
 
 ### forEach
-What it does:
+What it does: Applies a callback function to each element. This is an iteration method with no return value.
 
-How it works:
+How it works: Iterates through the source array and applies a function to every element. Method is used in place of a for loop. The callback function has the following arguments (in order): element, index (optional), source array (optional)
 
-Time Complexity:
+Time Complexity: linear O(n)
 
 Examples:
+```
+Console.log a string for each element:
+
+let names = ["Belini", "Tuna", "Dora", "Swiper"]
+let petGreetings = pet => console.log(`Hello, I am a cat. My name is ${pet}.`);
+let greet = names.forEach(petGreetings);
+
+Use the index param in the callback:
+
+let pets = ["Belini", "Tuna", "Dora", "Swiper"]
+let petOrder = (pet, index) => console.log(`Hello, I am ${pet}. I am number ${index+1} in the collection.`);
+let petIndex = pets.forEach(petOrder);
+
+Use the array param in the callback:
+
+let pets = ["Belini", "Tuna", "Dora", "Swiper"]
+let petList = (pet, index, array) => {
+  if(index === array.length - 1) console.log(`Hello, I am ${pet}. I am number ${index+1} (the last pet) in the collection.`)
+  else console.log(`Hello, I am ${pet}. I am number ${index+1} in the collection.`)
+}
+let petIntros = pets.forEach(petList);
+```
 
 ### sort
 What it does:
