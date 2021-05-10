@@ -280,7 +280,7 @@ let cheatdaySnack = snackySnacks.shift(); --> "pie"
 snackySnacks = ["carrots", "hummus", "olives", "green apples", "frozen grapes"]
 ```
 ##### Remove first key/value pair:
-An array-like object with enumerated keys and a length property can use shift. The first element (with the lowest numbered key) is removed and the length property is updated.
+An array-like object with enumerated keys and a length property can use shift. Unshift can be *called* or *applied* to array-like objects. The first element (with the lowest numbered key) is removed and the length property is updated.
 ```
 let numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 6 };
 let six = Array.prototype.pop.call(numbers); --> "zero"
@@ -340,6 +340,27 @@ Time Complexity: linear, O(n)
 Like pop and push, unshift (and shift, above) is mutating the array instead of simply copying it (like slice). But unlike pop and push, unshift (and shift) must "shift" all the elements of the array.
 
 Examples:
+##### Add an element to an array 
+```
+let snackySnacks = ["carrots", "hummus", "olives", "green apples", "frozen grapes"];
+let cheatdaySnack = snackySnacks.unshift("pie"); --> 6 //the updated length of the source array (snackySnacks)
+snackySnacks = ["pie", "carrots", "hummus", "olives", "green apples", "frozen grapes"]
+```
+##### Add one key/value pair:
+An array-like object with enumerated keys and a length property can use unshift. Shift can be *called* or *applied* to array-like objects. The new element is added with a key (index) of 0 and the length property is updated.
+```
+let numbers = { 0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", length: 6 };
+let six = Array.prototype.unshift.call("beforeZero"); --> 7
+numbers = { 0: "beforeZero", 1: "zero", 2: "one", 3: "two", 4: "three", 5: "four", 6: "five", length: 7 };
+```
+##### Add more than one element to the start:
+```
+let gotcha = ["Never", "gonna", "run", "around", "and", "desert", "you"];
+let upAndDown = gotcha.unshift("Never", "gonna", "give", "you", "up", "\n", "Never", "gonna", "let", "you", "down", "\n") --> 19
+
+Source array after strings were added with unshift:
+gotcha = ["Never", "gonna", "give", "you", "up", "\n", "Never", "gonna", "let", "you", "down", "\n", "Never", "gonna", "run", "around", "and", "desert", "you"];
+```
 
 ### includes
 What it does:
