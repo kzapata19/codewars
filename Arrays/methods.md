@@ -363,13 +363,34 @@ gotcha = ["Never", "gonna", "give", "you", "up", "\n", "Never", "gonna", "let", 
 ```
 
 ### includes
-What it does:
+What it does: method confirms whether an item is included in the source array by returning a boolean
 
-How it works:
+How it works: call the method on the source array and pass the search element to check in the collection. For strings, the method is case-sensitive. Takes a second (optional) argument *fromIndex* which indicates the start index of the search.
 
-Time Complexity:
+Time Complexity: linear, O(n)
 
-Examples:
+Examples: 
+
+##### Search for one element in the collection:
+```
+let hackstack = ["hay", "hay", "needle", "hay",  "needle", "hay"];
+let findNeedle = hackstack.includes("needle") --> true
+```
+
+##### Search for an element with a start index defined:
+```
+let hackstack = ["hay", "hay", "needle", "hay",  "needle", "hay", "hay", "hay"];
+let findNeedle = hackstack.includes("needle", 5) --> false
+```
+
+#### Search for an element in a non-array object:
+```
+let vegetables = function() {
+  return arguments
+}
+let greens = vegetables("kale", "spinach", "lettuce")
+let gotKale = Array.prototype.includes.call(greens, "kale") --> true
+```
 
 ### indexOf
 What it does:
