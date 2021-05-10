@@ -62,7 +62,7 @@ function getMin(arr) {
 }
 
 function getMax(arr) {
-  return arr.reduce((currenMax, int) => int > currenMax ? int : currenMax, -Infinity);
+  return arr.reduce((currentMax, int) => int > currentMax ? int : currentMax, -Infinity);
 }
 
 function getAges(arr) {
