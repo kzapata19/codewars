@@ -89,3 +89,12 @@ Pseudocode:
 - Add all relevant integers
 - Return sum
 */
+function getSum(arr) {
+  let sorted = arr.sort((a, b) => a - b)
+  let removeMin = sorted.shift()
+  let removeMax = sorted.pop()
+  
+  return sorted.reduce((sum, currentInt) => {
+    return sum += currentInt;
+  }, 0)
+}
