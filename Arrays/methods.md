@@ -66,13 +66,36 @@ Note: the initial value is set to be an empty object which will store the tally 
 ```
 
 ### filter
-What it does:
+What it does: creates a new array with all elements that pass the test implemented by the provided callback. The callback takes the following arguments (in order): elements, index (optional), source array (optional), thisArg (optional)
 
-How it works:
+How it works: call filter on the source array, pass a callback as the argument
 
-Time Complexity:
+Time Complexity: linear O(n)
 
 Examples:
+```
+Search for one item in an array
+let pastries = ["donuts", "croissants", "muffins", "cookies", "pies", "tarts", "quiches"]
+let findCookies = pastry => pastry === "cookies";
+let getCookies = pastries.filter(findCookies);
+
+Find the specific values in a collection
+let friends = [
+  {name: "Dan", age: 28}, 
+  {name: "Janice", age: 30}, 
+  {name: "Robert", age: 35},
+  {name: "Greg", age: 40},
+  {name: "Sammy", age: 31},
+  {name: "Dolores", age: 32}
+]
+let friendsOverThirty = friend => friend.age > 30;
+let getFriendsOverThirty = friends.filter(friendsOverThirty)
+
+Filter for all even numbers
+let integers = [1, -3, 29, 100, -2910, 384, 38, 99]
+let findEvenInt = int => int % 2 === 0;
+let getEvenInt = integers.filter(findEvenInt);
+```
 
 ### forEach
 What it does:
