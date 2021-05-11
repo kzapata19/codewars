@@ -429,10 +429,33 @@ let all100 = function(array) {
 all100(keepIt100) --> [3, 4, 8, 11, 12]
 ```
 ### every
-What it does:
+What it does: method tests whether all elements in the source array pass the test implemented by the passed callback
 
-How it works:
+How it works: call the method on a source array and pass a callback used to test each array element. Will return a boolean if all elements passed the test; the callback returns the appropriate boolean if the function returns a truthy value. The callback take in the following arguments (in order): element, index (optional), array (optional)
 
-Time Complexity:
+Time Complexity: linear, O(n)
 
 Examples:
+##### Test the range of numbers
+```
+let numbers = [1873, 1937, 1999, 1986, 1990];
+let twentyOneAndOver = year => year <= 2021;
+let legalDrinkingAges = numbers.every(twentyOneAndOver) --> true
+```
+##### Checking object properties of a collection
+```
+let catProfiles = [
+    {
+      name: "Bellini", 
+      age: 6, 
+      hobbies: ["asking to be petted", "chasing Tuna", "destroying toilet paper"]
+    }, 
+    {
+      name: "Tuna", 
+      age: 3, 
+      hobbies: ["running from Bellini", "hissing at Bellini", "sleeping on the heater"]
+    }
+]
+let kittenFinder = (catProfile, index, profiles) => profiles.age > 1;
+let getKitten = catProfiles.every(kittenFinder); --> false 
+```
