@@ -72,4 +72,20 @@ function getAges(arr) {
   return [youngest, oldest, diff];
 }
 
-console.log(getAges([1, 30, 28, 5]))// --> [1, 30, 29]
+/*
+Three: 
+Parameters: one array of integers
+
+Return: one integer (a sum)
+- Must be the sum of all integers except the lower and highest integer values
+
+Examples/Edge Cases:
+[ 6, 2, 1, 8, 10 ] => 16
+[ 1, 1, 11, 2, 3 ] => 6
+
+Pseudocode:
+- Sort the array in ascending order
+- Iterate through the sorted array starting at index 1 and stopping (and including) array.length - 2
+- Add all relevant integers
+- Return sum
+*/
