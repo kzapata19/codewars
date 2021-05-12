@@ -23,13 +23,47 @@ let song = beers.map(beer => `${beer} bottles of beers on the wall, ${beer} bott
 ```
 
 ### reduce
-What it does:
+What it does: executes a reducer callback on every array element and outputs a single value (reduces the collection to a single value). The callback function has four arguments (in order): accumulator, array element, index, source array.
 
-How it works:
+How it works: call the method on target array. The method takes a start value/accumulator (either one is defined or if not, the first array element's value is the start value) and the next array element (either the first or second depending on the initial start value) and processes the values by applying a callback (reducer) function. The reducer's output value is assigned to the accumulator, whose value is remembered across each iteration throughout the array, which will be the final output value.
 
-Time Complexity:
+Time Complexity: linear O(n)
 
 Examples:
+```
+Finding the sum
+let numbers = [2, 4, 5, 10, 11, 5920, 20580]
+let add = (initialVal, nextVal) => initialVal += nextVal;
+let sum = numbers.reduce(add, 0) // will return 26532
+
+Finding the max (or min) value
+let dates = [
+  '2021/05/01',
+  '2021/05/02',
+  '2019/01/04',
+  '2018/12/09',
+  '1939/09/19'
+].map( val => new Date(val) );
+
+let mostRecentDate = dates.reduce( (recent, date) => date > recent ? date : recent, dates[0]);
+Note: the initial value for the accumulator is set to be the first date in the dates array.
+If no initial value is set, the first value of the array is set as the default initial value.
+
+Grouping Values
+let pets = [
+  { name: 'Bellini', type: 'cat'},
+  { name: 'Tuna', type: 'cat'},
+  { name: 'Sally', type: 'dog'},
+  { name: 'Kitty', type: 'cat'}
+]
+let reducer = ( map, value ) =>  {
+  if(map[value] == null) map[value] = 1
+  else map[value]++;
+  return map;
+}
+let totalPetCount = pets.map(pet => pet.type).reduce(reducer, {})
+Note: the initial value is set to be an empty object which will store the tally for the pet types
+```
 
 ### filter
 What it does:
