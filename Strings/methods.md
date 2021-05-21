@@ -16,13 +16,23 @@ let space = goal.charAt(5) --> " "
 ```
 
 ### charCodeAt
-What it does: 
+What it does: The method returns a Unicode character set code unit (ranging between 0 and 65535) of the target string character at a given index.
 
-How it works: 
+How it works: method takes one argument, the index of the character whose Unicode will be used. The index must be between 0 and the length - 1 of the string. If the index provided is out of range the return value will be NaN.
 
-Time Complexity: 
+Time Complexity: Constant O(1). The index look-up is constant. The corresponding character code look-up is also constant (uses a hashmap?)
 
 Examples:
+```
+let petName = "Bellini"
+petName.charCodeAt(1) --> 101 (for "e")
+
+let belliniAge = "Bellini is about 4 years old"
+belliniAge.charCodeAt(17) --> 52 (for "4")
+
+let belliniDrama = "Pet me now!"
+belliniDrama.charCodeAt(10) --> 33 (for "!")
+```
 
 ### concat
 What it does: 
