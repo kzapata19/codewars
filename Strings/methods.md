@@ -35,13 +35,31 @@ belliniDrama.charCodeAt(10) --> 33 (for "!")
 ```
 
 ### concat
-What it does: 
+What it does: method concatenates the string arguments to the calling string and returns a new (concatenated) string.
 
-How it works: 
+How it works: method takes one or more strings to merge. None of the input strings are mutated. A new string, with a copy of the strings to be merged, will be the output.
 
-Time Complexity:  
+Time Complexity: linear O(n) Think of the strings to be concatenated as immutable arrays. Every time strings are concatenated, a new string is allocated and the string characters are copied to the new output string. 
 
 Examples:
+
+Concatenating two strings
+```
+let greeting = "Good morning. "
+greeting.concat("What's for breakfast?") --> "Good morning. What's for breakfast?"
+```
+
+Concatenating more than two strings
+```
+let greeting = "Good morning. "
+greeting.concat("What's for breakfast? ", "How's the coffee? ", "I'm drinking an almond milk latte.") --> "Good morning. What's for breakfast? How's the coffee? I'm drinking an almond milk latte."
+```
+
+Concatenating an array of strings
+```
+let morning = ["Good ", "morning. ", "What ", "kind ", "of ", "coffee ", "are ", "you ", "drinking", "?"]
+"".concat(...morning) --> "Good morning. What kind of coffee are you drinking?"
+```
 
 ### includes
 What it does: 
