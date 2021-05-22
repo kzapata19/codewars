@@ -62,14 +62,31 @@ let morning = ["Good ", "morning. ", "What ", "kind ", "of ", "coffee ", "are ",
 ```
 
 ### includes
-What it does: 
+What it does: method conducts a case-sensitive search to determine whether one string is found within another string. Returns a boolean.
 
-How it works: 
+How it works: method takes one argument, a string that will be searched in the string called on. Takes an optional argument, position, to indicate which position to start the search
 
-Time Complexity:  
+Time Complexity:  Linear O(n)
 
 Examples:
 
+Includes is case-sensitive
+```
+let tongueTwister = "Fred fed Ted bread, and Ted fed Fred bread"
+let gotBread = tongueTwister.includes("Bread") --> false
+```
+
+Start search at a specific index
+```
+let tongueTwister = "Fred fed Ted bread, and Ted fed Fred bread"
+let gotTed = tongueTwister.includes("Ted", 27) --> false
+```
+Search for punctuation or space
+```
+let tongueTwister = "Fred fed Ted bread, and Ted fed Fred bread"
+let gotComma = tongueTwister.includes(",") --> true
+let gotSpace = tongueTwister.includes(" ") --> true
+```
 ### indexOf
 What it does: 
 
