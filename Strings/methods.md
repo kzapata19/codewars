@@ -111,13 +111,31 @@ let findSecondBell = bell.indexOf("Bell", 1) --> 33
 ```
 
 ### match
-What it does: 
+What it does: method returns an array with the all the matches made after comparing the source string with the target search string. Can also be used to return a copy of the source string with specified modifications. 
 
-How it works: 
+How it works: method takes in a regular expression as an argument to specify the search conditions. The search results are returned in a new array. If a non-regular expression is passed, the method will create a regular expression instance with the input. If no argument is passed, the method will return an array with an empty string [""].
 
-Time Complexity:  
+Time Complexity: Depends on the search input  
 
 Examples:
+Find all the As in the entire string
+```
+let lunch = "Today we had salmon and quinoa with a side of veggies."
+let allTheAs = /a/gi;
+let findAllTheAs = lunch.match(allTheAs) --> ["a", "a", "a", "a", "a", "a"]
+```
+Find all the the capital Bs only
+```
+let desserts = "Bagels, banana pie, Bavarian cream, banana split"
+let lowerCaseBs = /b/g
+let findLowercaseBs = desserts.match(lowerCaseBs) --> ["b", "b"]
+```
+Find all capital letters within a specific range
+```
+let animals = "Pig, dog, Cat, mouse, Horse, bird"
+let findCaps = /[A-Z]/g
+let getAllCaps = animals.match(findCaps) --> ["P", "C", "H"]
+```
 
 ### repeat
 What it does: 
