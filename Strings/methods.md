@@ -88,13 +88,27 @@ let gotComma = tongueTwister.includes(",") --> true
 let gotSpace = tongueTwister.includes(" ") --> true
 ```
 ### indexOf
-What it does: 
+What it does: method returns the index of the first occurrence of the target value. Conducts the search at index 0 by default.
 
-How it works: 
+How it works: method takes a string argument and will return the index of the first occurrence found on the calling string. Will return -1 if the value is not found. Takes a second optional argument, fromIndex, that specifies the start index of the search. If no target string is specified, the method will search for "undefined" at position 0. 
 
-Time Complexity:  
+Time Complexity:  linear, O(n)
 
 Examples:
+```
+let cat = "My cat Tuna likes to eat pastries."
+let findFirstA = cat.indexOf("a") --> 4
+```
+Get the index of a substring's first instance
+```
+let bell = "Bellini likes bells and lives in Bellflower."
+let findFirstBell = bell.indexOf("bell") --> 14 (search is case-sensitive)
+```
+Get the index of a substring using fromIndex param
+```
+let bell = "Bellini likes bells and lives in Bellflower."
+let findSecondBell = bell.indexOf("Bell", 1) --> 33
+```
 
 ### match
 What it does: 
