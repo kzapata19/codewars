@@ -138,13 +138,21 @@ let getAllCaps = animals.match(findCaps) --> ["P", "C", "H"]
 ```
 
 ### repeat
-What it does: 
+What it does: method creates a new string with all the specified number of copies (concatenated together) of the string on which it is called
 
-How it works: 
+How it works: method takes an argument of an integer between 0 and +Infinity that specifies the number of times to repeat the string. Number must not overflow the maximum string size
 
-Time Complexity:  
+Time Complexity:  linear O(n)
 
 Examples:
+```
+let bottles = "99 bottles of beer on the wall, "
+let song = bottles.repeat(3) --> "99 bottles of beer on the wall, 99 bottles of beer on the wall, 99 bottles of beer on the wall, "
+
+let blankOutput = bottles.repeat(0) --> ""
+
+let rangeError = bottles.repeat(1/0) --> RangeError
+```
 
 ### replace
 What it does: 
