@@ -199,13 +199,40 @@ let findA = greeting.search(regExpPeriod) --> -1 (not found)
 ```
 
 ### slice
-What it does: 
+What it does: method creates a shallow copy of a substring and returns the copy without modifying the source string
 
-How it works: 
+How it works: method takes in two optional arguments, beginIndex and endIndex, where each represents the index of the string characters. The endIndex character is not included. If no arguments are provided, the method will return a copy of the entire string. 
+  - beginIndex:
+    - zero-based index
+    - a negative index will be treated as str.length - n
+    - if undefined, start index will be 0 (will return a complete string copy)
+    - if index is greater than the index range, method returns an empty string ""
+  - endIndex:
+    - zero-based index
+    - exclusive, meaning the element at the end index is not included in the copy
+    - a negative index will be treated as str.length - endIndex
+    - if undefined or greater than str.length, method will extract to the end of the string
+    - must be greater than beginIndex otherwise an empty string is returned ""
 
-Time Complexity:  
+Time Complexity: linear O(n)
 
 Examples:
+
+Both start and end provided:
+```
+let vegetables = "Eat your vegetables"
+let eat = vegetables.slice(0, 3) --> "Eat"
+```
+Negative indeces for start and end:
+```
+let vegetables = "Eat your vegetables"
+let your = vegetables.slice(-15, -11) --> "your"
+```
+Negative index for end:
+```
+let vegetables = "Eat your vegetables"
+let onlyOneVeggie = vegetables.slice(0, -1) --> "Eat your vegetable"
+```
 
 ### split
 What it does: 
