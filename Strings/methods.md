@@ -155,14 +155,28 @@ let rangeError = bottles.repeat(1/0) --> RangeError
 ```
 
 ### replace
-What it does: 
+What it does: method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp
 
-How it works: 
+How it works: method takes two arguments: the substring that will be replaced and the string that will be the replacement.
 
 Time Complexity:  
 
 Examples:
-
+```
+let greeting = "hello, stranger"
+let friend = greeting.replace("stranger", "friend!") --> "hello, friend!"
+```
+Replace using RegEx
+```
+let greeting = "Hello, stranger. Let's go get drinks!"
+let friend = greeting.replace(/stranger/i, "friend") --> "Hello, friend. Let's go get drinks!"
+```
+Switching words within a string
+```
+let question = "Friend Drinks"
+let sw = /(\w+)\s(\w+)/
+let drinks = question.replace(sw, '$2, $1')
+```
 ### search
 What it does: 
 
