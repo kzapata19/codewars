@@ -173,18 +173,30 @@ let friend = greeting.replace(/stranger/i, "friend") --> "Hello, friend. Let's g
 ```
 Switching words within a string
 ```
-let question = "Friend Drinks"
+let question = "Drinks Friend"
 let sw = /(\w+)\s(\w+)/
-let drinks = question.replace(sw, '$2, $1')
+let drinks = question.replace(sw, '$2, $1?') --> "Friend, Drinks?"
 ```
 ### search
-What it does: 
+What it does: method performs a search for a match between the passed regular expression and the string it is called on
 
-How it works: 
+How it works: takes a regular expression as an argument. If a non-regular expression is passed, the input will be converted to a RegExp with the new RegExp(). Method returns the index of the first match or -1 if no match is found.
 
 Time Complexity:  
 
-Examples:
+Examples: 
+```
+let greeting = "Hey Bellini!"
+
+let regExpression = /[A-G]/g
+let findB = greeting.search(regExpression) --> 4
+
+let regExpPunctuation = /[!]/g
+let findExclamation = greeting.search(regExpPunctuation) --> 11
+
+let regExpPeriod = /[.]/g
+let findA = greeting.search(regExpPeriod) --> -1 (not found)
+```
 
 ### slice
 What it does: 
