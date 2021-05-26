@@ -317,11 +317,18 @@ let number = 9
 number.toUpperCase() --> TypeError number.toUpperCase is not a function
 ```
 ### trim
-What it does: 
+What it does: method removed the whitespace from both ends of the source string. 
 
-How it works: 
+How it works: method takes no arguments. Whitespace characters include: space, tab, no-break space, etc. Also all line terminator characters: LF, CR, etc. If no whitespace is in the string, a new (copy) of the string will be returned.
 
-Time Complexity:  
+Time Complexity:  linear O(n)
 
 Examples:
+```
+let greeting = "What's cooking?!  "
+greeting.trim() --> "What's cooking?!"
 
+"    Space in the front only".trim() --> "Space in the front only"
+
+"\n New line and another new line\n and finally space at the end   ".trim() --> "New line and another new line\n and finally space at the end"
+```
