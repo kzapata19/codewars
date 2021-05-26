@@ -263,13 +263,23 @@ let reversed = palindrome.split("").reverse().join("") --> "anut fo raj a rof tu
 ```
 
 ### substr
-What it does: 
+What it does: method returns a copy of part of the string between the start and end indexes without modifying the source string. 
 
-How it works: 
+How it works: method takes two arguments, the start index and the end index (optional). The end index is exclusive. 
+  - if the end index is not passed, method extracts characters until the end of the string
+  - if both start and end indexes are equal, then method returns an empty string
+  - if the start index is greater than the end index, the method will treat the arguments as if they were swapped
 
-Time Complexity:  
+Time Complexity:  linear O(n)
 
 Examples:
+```
+let drinks = "Bellini, red wine, vodka, mint mojito"
+let whatINeedRightNow = drinks.substr(26) --> "mint mojito"
+
+let myLeastFavoriteDrinkOfTheList = drinks.substr(100,100) --> ""
+let whatIDrankToday = drinks.substr(9, 8) --> "red wine"
+```
 
 ### toLowerCase
 What it does: 
