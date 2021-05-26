@@ -284,7 +284,7 @@ let whatIDrankToday = drinks.substr(9, 8) --> "red wine"
 ### toLowerCase
 What it does: method returns a new string with a representation of the sources string in lower case format. The source string is not mutated.
 
-How it works: take no arguments, simply call the method on the source string
+How it works: takes no arguments, simply call the method on the source string
 
 Time Complexity:  linear O(n)
 
@@ -300,14 +300,22 @@ number.toLowerCase() --> TypeError number.toLowerCase is not a function
 ```
 
 ### toUpperCase
-What it does: 
+What it does: method returns a new string with a representation of the sources string in upper case format. The source string is not mutated.
 
-How it works: 
+How it works: takes no arguments, simply call the method on the source string
 
-Time Complexity:  
+Time Complexity:  linear O(n)
 
 Examples:
+```
+let allLowerCase = "abcdef"
+let upperCased = allLowerCase.toUpperCase() --> "ABCDEF"
 
+"i".toUpperCase() --> "I"
+
+let number = 9
+number.toUpperCase() --> TypeError number.toUpperCase is not a function
+```
 ### trim
 What it does: 
 
