@@ -61,9 +61,9 @@ function sortStringsByVowels(strings) {
   let largestSubStrLength = 0;
   let currentSubStrLength = 0;
 
-  let processedArray = strings.reduce((mapped, currentStr) => {
+  let processedArray = strings.reduce((mapped, currentStr, strIndex) => {
     let lowercased = currentStr.toLowerCase()
-    lowercased.split("").forEach(char => {
+    lowercased.split("").forEach((char, charIndex, array) => {
       vowels.split("").forEach(vowel => {
         if(char === vowel) currentSubStrLength++
         else if(char !== vowel) {
@@ -71,6 +71,9 @@ function sortStringsByVowels(strings) {
             largestSubStrLength = currentSubStrLength
           } 
           currentSubStrLength = 0;
+        }
+        else if(charIndex === array.length -1) {
+          mapped.set(strIndex, largestSubStrLength)
         }
       })
       
