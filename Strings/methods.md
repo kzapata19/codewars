@@ -235,13 +235,32 @@ let onlyOneVeggie = vegetables.slice(0, -1) --> "Eat your vegetable"
 ```
 
 ### split
-What it does: 
+What it does: divides a string into an ordered list of substrings, stores them in an array, and returns it
 
-How it works: 
+How it works: the method returns an array of ordered substrings where the order is determined by a search pattern. The pattern is provided as the first argument. The second argument (optional) is a non-negative integer which specifies the limit on the number of substrings to include in the output array. If limit is 0, method returns [].
+Separator:
+  - if a single character, will be used to split a string
+  - if multiple characters, the entire pattern must be found in order to split
+  - if undefined or does not occur in string, the output array will contain one element, the complete source string
+  - if its an empty string, the output array will be individual UTF-16 characters of the source string
 
-Time Complexity:  
+Time Complexity: linear O(n)
 
 Examples:
+```
+let hair = "Splitting all the hairs"
+let splitting = hair.split("") --> ["S", "p", "l", "i", "t", "t", "i", "n", "g", " ", "a", "l", "l", " ", "t", "h", "e", " ", "h", "a", "i", "r", "s"]
+```
+Returning a limited number of splits:
+```
+let hair = "Splitting all the hairs"
+let onlySplitting = hair.split(" ", 1) -> ["Splitting"]
+```
+Using split to reverse a string
+```
+let palindrome = "A nut for a jar of tuna"
+let reversed = palindrome.split("").reverse().join("") --> "anut fo raj a rof tun A"
+```
 
 ### substr
 What it does: 
