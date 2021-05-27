@@ -34,17 +34,17 @@ sortStringsByVowels([str1, str2]) --> ["what a beautiful day today", "it's okay,
 
 Pseudocode:
 - Create a dictionary that will keep track of source array's string sequence
-- Create a variable to hold the vowel string to use for comparison
+- Create a variable to hold the vowel string to use for comparison (all vowels will be lowercase)
 - Create two counters to track the LARGEST vowel substring length and the CURRENT vowel count
 - Create two pointers to track positions of the vowel string and of the current string in the input array
 - Iterate through the input array (for each string)
+  - Convert each string to lowercase (to compare to lowercase vowel characters)
   - Compare each current string character to each vowel character
     - If the character is a vowel, increment the CURRENT vowel counter
-      - If the next character is a vowel, increment the CURRENT vowel counter
       - If the next character is not a vowel 
         - Compare the LARGEST and CURRENT counters
           - if CURRENT is larger than LARGEST, replace LARGEST value with CURRENT value
-          - if CURRENT is smaller than LARGEST, reset CURRENT to 0
+          - reset CURRENT to 0
         - If current position is last character of string  
           - assign LARGEST counter as value and key is the index of current string (Map automatically orders keys in sequence of insertion)
     - If there is no match, move the pointer to the next character 
@@ -54,11 +54,29 @@ Pseudocode:
   - Return results array
 */
 
+function sortStringsByVowels(strings) {
 
-function sortStringsByVowels(strings){
+  let mapped = new Map();
+  let vowels = "aeiou";
+  let largestSubStrLength = 0;
+  let currentSubStrLength = 0;
 
-  var results = [];
+  let processedArray = strings.reduce((mapped, currentStr) => {
+    let lowercased = currentStr.toLowerCase()
+    lowercased.split("").forEach(char => {
+      vowels.split("").forEach(vowel => {
+        if(char === vowel) currentSubStrLength++
+        else if(char !== vowel) {
+          if(currentSubStrLength > largestSubStrLength) {
+            largestSubStrLength = currentSubStrLength
+          } 
+          currentSubStrLength = 0;
+        }
+      })
+      
+    })
+  }, mapped)
   
-  
+  let results = []
   return results;
   }
