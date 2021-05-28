@@ -39,3 +39,58 @@ The array {"","bc","","cd"}
 
 should return An Empty List
 */
+
+/*
+Parameters: one array with a list of strings
+  - if array is empty, return an empty array
+  - if array has empty strings only, return an empty array
+  - if array has one or more empty strings, treat them as invalid and do not include in the return array
+
+Return: one array with all valid strings
+  - valid strings should be returned in sequence of original input
+
+Example/Edge Cases:
+1. All strings are valid:
+shiritori(["dog","goose","elephant","tiger","rhino","orc","cat"]) --> ["dog","goose","elephant","tiger","rhino","orc","cat"]);
+
+2. Only some strings are valid:
+shiritori(["dog","goose","tiger","cat", "elephant","rhino","orc"]) --> ["dog","goose"] 
+Note: the losing condition started with "tiger" since last letter is "e"
+and first letter of next string is "t". No more strings are included in output array after "goose"
+
+3. Empty array and array with only empty strings:
+shiritori([]) --> []
+shiritori(["","","","","",""]) --> []
+
+4. Array with valid and invalid strings:
+shiritori(["ab","bc","","de","","",""]) --> ["ab","bc"] 
+Note: the losing condition starts with the empty string so last valid string in output array is "bc". No other strings are included in output.
+
+Pseudocode:
+- iterate through the input array
+  - for current string, compare the last character to next string's first character
+    - if there is a match, push current string and subsequent string to output array
+    - if there is no match, exit loop
+- return output array
+*/
+
+function shiritori(words) {
+  let results = []
+  if (words.length === 0) return results
+  for (let i = 0; i < words.length; i++) {
+    let currentWord = words[i]
+    if(currentWord === "") break
+    else if(words[i + 1] !== undefined && currentWord[currentWord.length - 1] === words[i + 1][0]) results.push(currentWord)
+    else {
+      results.push(currentWord)
+      break;
+    }
+  }
+  return results;
+}
+console.log(shiritori(["dog","goose","elephant","tiger","elephant","rhino","orc"]))
+console.log(shiritori(["dog","goose","tiger","cat", "elephant","rhino","orc"]))
+console.log(shiritori([]))
+console.log(shiritori(["","","","","",""]))
+console.log(shiritori(["ab","bc","","de","","",""]))
+console.log(shiritori(["dog","goose","elephant","tiger","rhino","orc","cat"]))
